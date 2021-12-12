@@ -1,149 +1,106 @@
 import java.util.Scanner;
 
-public class Main{
+public class Main {
 
-    public static void main(String[] args){
-    int day,month;
+    //Mesafe başına ücret 0,10 TL / km olarak alınacak.
 
-        Scanner input=new Scanner(System.in);
-        System.out.println("1.Ocak\n" +
-                            "2.Şubat\n" +
-                            "3.Mart\n" +
-                            "4.Nisan\n" +
-                            "5.Mayıs\n" +
-                            "6.Haziran\n" +
-                            "7.Temmuz\n" +
-                            "8.Ağustos\n" +
-                            "9.Eylül\n" +
-                            "10.Ekim\n" +
-                            "11.Kasım\n" +
-                            "12.Aralık\n");
-        System.out.println("Kaçıncı Ayda Doğdunuz?: ");
-        month=input.nextInt();
-        System.out.println("Kaçıncı Günde Doğdunuz?: ");
-        day=input.nextInt();
-        if(month==1){
+    public static void main(String[] args) {
+        int age,mesafe;
 
-            if(day<22&&day>=0){
-                System.out.println("Oğlak Burcusunuz.");
-            }
-            else if(day>=22&&day<=31){
-                System.out.println("Kova Burcusunuz.");
-            }
+
+        Scanner input = new Scanner(System.in);
+        System.out.print("Gideceğiniz Mesafeyi KM cinsinden giriniz(Ör:200): ");
+        mesafe=input.nextInt();
+        if(mesafe>0){
+        double tutar=mesafe*0.10;
+        }
+        else {
+            System.out.println("Hatali Veri Girdiniz.");
         }
 
-        if(month==2){//şubat
-
-            if(day<20&&day>=0){
-                System.out.println("Kova Burcusunuz.");
-            }
-            else if(day>=21&&day<=28){
-                System.out.println("Balık Burcusunuz.");
-            }
+        System.out.print("Yaşınızı Giriniz: ");
+        age=input.nextInt();
+        if (age<0){
+            System.out.println("Hatali Veri Girdiniz.");
         }
-        if(month==3){
+        else if (0<=age && age<12){
+            System.out.print("Yolculuk tipini giriniz (1 => Tek Yön , 2 => Gidiş Dönüş ): ");
+            int yolculukTipi=input.nextInt();
+            if (yolculukTipi==1){
+                double indirimliTutar = mesafe*yolculukTipi*0.10*0.50;   //0-12 yaş indirimi %50,
+                System.out.println("Toplam Tutar:"+indirimliTutar+"TL");
+            }
+            else if(yolculukTipi==2){
+                double indirimliTutar = mesafe*yolculukTipi*0.10*0.50*0.80;//gidiş-dönüş indirimi %20(%100-%20=0.80)
+                System.out.println("Toplam Tutar:"+indirimliTutar+"TL");
 
-            if(day>=0 &&day<20){
-                System.out.println("Balık Burcusunuz.");
             }
-            else if(day>=21&&day<=31){
-                System.out.println("Koç Burcusunuz.");
+            else{
+                System.out.println("'Yolculuk Tipi' Verisi Hatali.");
+
             }
+
+
         }
-        if(month==4){
+        else if (12<=age && age<=24){
+            System.out.print("Yolculuk tipini giriniz (1 => Tek Yön , 2 => Gidiş Dönüş ): ");
+            int yolculukTipi=input.nextInt();
+            if (yolculukTipi==1){
+                double indirimliTutar = mesafe*yolculukTipi*0.10*0.90;   //12-24 yaş  indirimi %10(%100-%10=0.90)
+                System.out.println("Toplam Tutar:"+indirimliTutar+"TL");
+            }
+            else if(yolculukTipi==2){
+                double indirimliTutar = mesafe*yolculukTipi*0.10*0.90*0.80;//gidiş-dönüş indirimi %20(%100-%20=0.80)
+                System.out.println("Toplam Tutar:"+indirimliTutar+"TL");
 
-            if(day>=0 &&day<21){
-                System.out.println("Koç Burcusunuz.");
             }
-            else if(day>=21&&day<=30){
-                System.out.println("Boğa Burcusunuz.");
+            else{
+                System.out.println("'Yolculuk Tipi' Verisi Hatali.");
+
             }
+
+
         }
-        if(month==5){
+        else if (24<age && age<=65){
+            System.out.print("Yolculuk tipini giriniz (1 => Tek Yön , 2 => Gidiş Dönüş ): ");
+            int yolculukTipi=input.nextInt();
 
-            if(day>=0 &&day<22){
-                System.out.println("Boğa Burcusunuz.");
+            if (yolculukTipi==1){
+                double indirimliTutar = mesafe*yolculukTipi*0.10;   //24-65 yaş  indirimi yok)
+                System.out.println("Toplam Tutar:"+indirimliTutar+"TL");
             }
-            else if(day>=22&&day<=31){
-                System.out.println("İkizler Burcusunuz.");
+            else if(yolculukTipi==2){
+                double indirimliTutar = mesafe*yolculukTipi*0.10*0.80;//gidiş-dönüş indirimi %20(%100-%20=0.80)
+                System.out.println("Toplam Tutar:"+indirimliTutar+"TL");
+
             }
+            else{
+                System.out.println("'Yolculuk Tipi' Verisi Hatali.");
+
+            }
+
+
         }
-        if(month==6){
+        else if (age>65 && age<150){
+            System.out.print("Yolculuk tipini giriniz (1 => Tek Yön , 2 => Gidiş Dönüş ): ");
+            int yolculukTipi=input.nextInt();
 
-            if(day>=0 &&day<23){
-                System.out.println("ikizler Burcusunuz.");
+            if (yolculukTipi==1){
+                double indirimliTutar = mesafe*yolculukTipi*0.10*0.70;   //65-150 yaş indirimi %30(%100-%30=0.70)
+                System.out.println("Toplam Tutar:"+indirimliTutar+"TL");
             }
-            else if(day>=23&&day<=30){
-                System.out.println("Yengeç Burcusunuz.");
+            else if(yolculukTipi==2){
+                double indirimliTutar = mesafe*yolculukTipi*0.10*0.70*0.80;//gidiş-dönüş indirimi %20(%100-%20=0.80)
+                System.out.println("Toplam Tutar:"+indirimliTutar+"TL");
+
             }
+            else{
+                System.out.println("'Yolculuk Tipi' Verisi Hatali.");
+
+            }
+
         }
-        if(month==7){
-
-            if(day>=0 &&day<23){
-                System.out.println("Yengeç Burcusunuz.");
-            }
-            else if(day>=23&&day<=31){
-                System.out.println("Aslan Burcusunuz.");
-            }
-        }
-        if(month==8){
-
-            if(day>=0 &&day<23){
-                System.out.println("Aslan Burcusunuz.");
-            }
-            else if(day>=23&&day<=31){
-                System.out.println("Başak Burcusunuz.");
-            }
-        }
-        if(month==9){
-
-            if(day>=0 &&day<23){
-                System.out.println("Başak Burcusunuz.");
-            }
-            else if(day>=23&&day<=30){
-                System.out.println("Terazi Burcusunuz.");
-            }
-        }
-        if(month==10){
-
-            if(day>=0 &&day<23){
-                System.out.println("Terazi Burcusunuz.");
-            }
-            else if(day>=23&&day<=31){
-                System.out.println("Akrep Burcusunuz.");
-            }
-        }
-        if(month==11){
-
-            if(day>=0 &&day<22){
-                System.out.println("Akrep Burcusunuz.");
-            }
-            else if(day>=22&&day<=30){
-                System.out.println("Yay Burcusunuz.");
-            }
-        }
-        if(month==12){
-
-            if(day>=0 &&day<22){
-                System.out.println("Yay Burcusunuz.");
-            }
-            else if(day>=22&&day<=31){
-                System.out.println("Kova Burcusunuz.");
-            }
-        }
-
+        else
+            System.out.println("Geçersiz bir yaş girdiniz.");
     }
-
 }
-/* Kova Burcu : 22 Ocak - 19 Şubat
-  Balık Burcu : 20 Şubat - 20 Mart
-  Koç Burcu : 21 Mart - 20 Nisan
-  Boğa Burcu : 21 Nisan - 21 Mayıs
-  İkizler Burcu : 22 Mayıs - 22 Haziran-
-  Yengeç Burcu : 23 Haziran - 22 Temmuz
-  Aslan Burcu : 23 Temmuz - 22 Ağustos
-  Başak Burcu : 23 Ağustos - 22 Eylül
-  Terazi Burcu : 23 Eylül - 22 Ekim
-  Akrep Burcu : 23 Ekim - 21 Kasım
-  Yay Burcu : 22 Kasım - 21 Aralık
-  Oğlak Burcu : 22 Aralık - 21 Ocak */
