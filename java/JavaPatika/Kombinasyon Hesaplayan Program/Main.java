@@ -22,25 +22,31 @@ public class Main {
 
         System.out.print("Alt Küme Sayisini Giriniz: ");
         altKumeSayisi=input.nextInt();
+        
+        // n! için kod kısmı
         for (int i=1;i<=elemanSayisi;i++){
-
+                                                                        
                 fact1*=i;
 
         }
         Faktoriyel=fact1;
-
+         //r! için kod kısmı
         for (int i=1;i<=altKumeSayisi;i++){
 
             fact2*=i;
 
         }
         Faktoriyel2=fact2;
+        
+        // (n-r)! kısmı için Kodu kısmı
         for (int i=1;i<=(elemanSayisi-altKumeSayisi) ;i++){
 
             fact3*=i;
 
         }
         Faktoriyel3=fact3;
+        
+        
         // C(n,r) = n! / (r! * (n-r)!)
         long sonuc=Faktoriyel/(Faktoriyel2*Faktoriyel3);
 
