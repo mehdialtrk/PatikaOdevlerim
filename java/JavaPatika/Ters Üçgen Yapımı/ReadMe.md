@@ -2,9 +2,9 @@ Java ile basamak sayısının kullanıcıdan alınan ve döngüler kullanılarak
 
 Örnek
 Basamak Sayısı : 10
-/*
-*********
- *******
-  *****
-   ***
-    *             */
+
++++++++++
+ +++++++
+  +++++
+   +++
+    +            
